@@ -6,7 +6,7 @@ console.log(c);
 
 $.ajax({
 		method: "GET",
-		url: 'http://localhost:8081/movie/'+c
+		url: 'http://localhost:8762/movie/'+c
 	}).done(function(data){//anonymus function, async task
 		// data = JSON.parse(data.toString());
 		console.log(data)
@@ -38,7 +38,7 @@ $.ajax({
 	wishlistButton.addEventListener("click", function(){
 		$.ajax({
 			method: "PUT",
-			url: 'http://localhost:8084/wishlist/add/'+1+'/'+c //testUser
+			url: 'http://localhost:8762/wishlist/add/'+1+'/'+c //testUser
 		}).done(function(data){//anonymus function, async task
 			// data = JSON.parse(data.toString());
 			console.log(data)

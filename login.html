@@ -1,0 +1,34 @@
+
+<form id="form">
+	<input id="username" type="" name="">
+	<input id="password" type="" name="">
+	<button type="submit">Log in</button>
+</form>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	form.addEventListener("submit", function(e){
+		e.preventDefault();
+
+		var person = {
+            username: $("#username").val(),
+            password:$("#password").val(),
+        }
+		$.ajax({
+			method: "POST",
+			url: 'http://localhost:8762/auth',
+			// dataType: "json",
+			contentType: 'text/plain',
+			data: JSON.stringify(person),
+			success: function(data, textStatus, request){
+				localStorage.setItem("token", data);
+			        console.log(localStorage.getItem("token"))
+			   },
+			   error: function (request, textStatus, errorThrown) {
+			        alert("Clould not connect");
+			   }
+
+		})
+
+	})
+</script>

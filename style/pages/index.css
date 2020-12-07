@@ -63,7 +63,10 @@ body {
 }
 
 
-
+.text .name {
+	color: #000;
+	mix-blend-mode: difference;
+}
 
 
 
@@ -137,6 +140,15 @@ body {
 	left: 10px;
 	bottom: 10px;
 	z-index: 3;
+}
+
+
+
+.buyButton {
+	background-color: #f60; 
+	padding: 10px;
+	text-align: center;
+	color: #fff;
 }
 
 
