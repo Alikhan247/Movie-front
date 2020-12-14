@@ -23,6 +23,7 @@
 			success: function(data, textStatus, request){
 				localStorage.setItem("token", data);
 			        console.log(localStorage.getItem("token"))
+			        window.location.replace("/movie");
 			   },
 			   error: function (request, textStatus, errorThrown) {
 			        alert("Clould not connect");

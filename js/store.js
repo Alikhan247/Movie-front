@@ -1,6 +1,9 @@
 $.ajax({
 		method: "GET",
-		url: 'http://localhost:8762/movie/list'
+		url: 'http://localhost:8762/movie/list',
+	  	beforeSend: function(request) {
+	    	request.setRequestHeader("Authorization", localStorage.getItem("token"));
+		},
 	}).done(function(data){//anonymus function, async task
 		// data = JSON.parse(data.toString());
 		console.log(data)
@@ -50,12 +53,15 @@ $.ajax({
 						method: "POST",
 						contentType: "application/json",
 						url: 'http://localhost:8762/order',
-						data: JSON.stringify(t)
+						data: JSON.stringify(t),
+	  	beforeSend: function(request) {
+	    	request.setRequestHeader("Authorization", localStorage.getItem("token"));
+		},
 
 					}).done(function(data){//anonymus function, async task
 						// data = JSON.parse(data.toString());
 						console.log(data)
-						showMovies(data);
+						location.reload();
 					}).always(function(){
 
 				});

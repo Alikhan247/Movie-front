@@ -6,7 +6,10 @@ console.log(c);
 
 $.ajax({
 		method: "GET",
-		url: 'http://localhost:8762/movie/'+c
+		url: 'http://localhost:8762/movie/'+c,
+	  	beforeSend: function(request) {
+	    	request.setRequestHeader("Authorization", localStorage.getItem("token"));
+		},
 	}).done(function(data){//anonymus function, async task
 		// data = JSON.parse(data.toString());
 		console.log(data)

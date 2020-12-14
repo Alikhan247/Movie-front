@@ -1,6 +1,9 @@
 $.ajax({
 		method: "GET",
-		url: 'http://localhost:8083/recommendation'
+		url: 'http://localhost:8762/recommendation',
+	  	beforeSend: function(request) {
+	    	request.setRequestHeader("Authorization", localStorage.getItem("token"));
+		},
 	}).done(function(data){//anonymus function, async task
 		// data = JSON.parse(data.toString());
 		console.log(data)
@@ -12,7 +15,10 @@ $.ajax({
 
 $.ajax({
 		method: "GET",
-		url: 'http://localhost:8081/movie/list'
+		url: 'http://localhost:8762/movie/list',
+	  	beforeSend: function(request) {
+	    	request.setRequestHeader("Authorization", localStorage.getItem("token"));
+		},
 	}).done(function(data){//anonymus function, async task
 		// data = JSON.parse(data.toString());
 		console.log(data)
